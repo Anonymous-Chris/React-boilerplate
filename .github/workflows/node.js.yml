@@ -2,9 +2,9 @@ name: CI/CD for Boiler Plate
 
 on:
   push:
-    branches: [ overallDemo ]
+    branches: [ main ]
   pull_request:
-    branches: [ overallDemo ]
+    branches: [ main ]
 
 jobs:
   build:
