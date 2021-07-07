@@ -10,7 +10,7 @@ export default function FancyBorder(props) {
       setValue("component1");
     }
   };
-  console.log(props);
+  // console.log(props);
   return (
     <div className={"FancyBorder " + props.color}>
       {props.children}

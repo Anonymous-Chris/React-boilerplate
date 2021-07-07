@@ -1,5 +1,6 @@
 import "./App.css";
 import WelcomeDialog from "./functionalcomponents/compositionvsinheritance/WelcomeDialog";
+import Filter from "./functionalcomponents/skipandfetchpagination/Filter";
 function App() {
   return (
     <div className="App">
@@ -7,6 +8,7 @@ function App() {
       <div>
         Hello chris
         <WelcomeDialog />
+        <Filter />
       </div>
     </div>
   );
