@@ -66,6 +66,7 @@ const SmallFilter = (props) => {
               <div id={`checkboxes-${props.name}`} style={{ display: "none" }}>
                 <ReturnCheckbox data1={props.data} name1={props.name} />{" "}
               </div>
+              {console.log("hello")}
             </div>
           </form>
         </div>
