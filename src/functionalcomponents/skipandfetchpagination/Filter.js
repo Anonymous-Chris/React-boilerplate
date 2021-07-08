@@ -6,38 +6,77 @@ const Filter = () => {
   const [dropdown, setDropdown] = useState([]);
   const [selectedValue, setSelectedValue] = useState("");
   const [extraDropdowns, setExtraDropdowns] = useState([]);
+  let [dict, setDict] = useState([]);
   useEffect(() => {
     axios.get(`http://localhost:1880/beta/new/reportsfilter`).then((res) => {
-      //  console.log(res.data);
       setDropdown(res.data);
     });
   }, []);
 
-  //   console.log(dropdown);
   var changeSelectedValue = (e) => {
-    // console.log(e.target.value);
     setSelectedValue(e.target.value);
     openDropdown(e.target.value);
   };
 
   var openDropdown = (e) => {
-    console.log(e);
     dropdown.map((item) => {
       if (item.category === e) {
-        // console.log(item);
         var extra = item.child;
         setExtraDropdowns(extra);
       }
     });
   };
-
   var getFilters = (val, name) => {
-    console.log(val, name);
+    // console.log(name);
+    var temp = [];
+    // console.log(val + " from child");
+    if (val.length > 0) {
+      dict = dict.filter((a) => !a.includes(`${name}`));
+      val.map((item) => {
+        var index = dict.indexOf(item);
+        if (index === -1) {
+          temp.push(item);
+        }
+      });
+    }
+    // console.log(temp);
+    temp.map((item) => {
+      dict.push(item);
+    });
+
+    if (val === "") {
+      dict = dict.filter((a) => !a.includes(`${name}`));
+    }
+    console.log(dict);
+    // setDict(temp);
+
+    // // dict = dict.filter((a) => !a.includes(`${name}`));
+    // var filterItem = val + "_" + name;
+    // console.log(filterItem);
+    // if (dict.length === 0) {
+    //   dict.push(filterItem);
+    // } else {
+    //   if (val !== "") {
+    //     var index = dict.indexOf(filterItem);
+    //     if (index === -1) {
+    //       dict.push(filterItem);
+
+    //       console.log(dict);
+    //     }
+    //     // else {
+    //     //   dict = dict.filter((a) => !a.includes(`${name}`));
+    //     //   dict.push(filterItem);
+    //     // }
+    //   } else if (val === "") {
+    //     console.log(dict.filter((a) => !a.includes(`${name}`)));
+    //     dict = dict.filter((a) => !a.includes(`${name}`));
+    //   }
+    // }
   };
 
-  //   console.log(extraDropdowns);
   return (
     <React.Fragment>
+      {console.log(dict)}
       Filter
       {dropdown.length > 0 && (
         <div className="row w-100 pl-2">
@@ -54,7 +93,6 @@ const Filter = () => {
           </select>
         </div>
       )}
-      {console.log(extraDropdowns)}
       {extraDropdowns.length > 0 &&
         extraDropdowns.map((item, index) => {
           return (
