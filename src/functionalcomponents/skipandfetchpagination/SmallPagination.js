@@ -38,7 +38,7 @@ const SmallPagination = () => {
     var inputNumber = parseInt(e.target.value);
     if (inputNumber <= totalPages) {
       setpageNumber(inputNumber);
-    } else {
+    } else if (inputNumber === "") {
       setpageNumber("");
     }
   };
