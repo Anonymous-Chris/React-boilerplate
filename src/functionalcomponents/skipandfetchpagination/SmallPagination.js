@@ -42,6 +42,14 @@ const SmallPagination = () => {
       setpageNumber("");
     }
   };
+
+  var gotoFirst = () => {
+    setpageNumber(1);
+  };
+
+  var gotoLast = () => {
+    setpageNumber(totalPages);
+  };
   return (
     <>
       {/* {console.log(pageNumber, limitPerPage, sortBy, totalPages)} */}
@@ -60,7 +68,11 @@ const SmallPagination = () => {
         </span>
 
         <div className="pagination">
-          {/* <i className="fa fa-angle-double-left" aria-hidden="true"></i> */}
+          <i
+            className="fa fa-angle-double-left"
+            aria-hidden="true"
+            onClick={gotoFirst}
+          ></i>
           <i
             className="fas fa-angle-left"
             aria-hidden="true"
@@ -71,7 +83,11 @@ const SmallPagination = () => {
             aria-hidden="true"
             onClick={increasePage}
           ></i>
-          {/* <i className="fa fa-angle-double-right" aria-hidden="true"></i> */}
+          <i
+            className="fa fa-angle-double-right"
+            aria-hidden="true"
+            onClick={gotoLast}
+          ></i>
         </div>
       </div>
     </>
