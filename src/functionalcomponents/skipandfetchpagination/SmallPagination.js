@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Dropdown from "./Dropdown";
-const SmallPagination = () => {
+const SmallPagination = (props) => {
   const [pageNumber, setpageNumber] = useState(1);
   const [limitPerPage, setlimitPerPage] = useState([]);
   const [sortBy, setsortBy] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
+
+  const [sortByFinal, setSortByFinal] = useState("");
+  const [limitByFinal, setLimitByFinal] = useState("");
 
   useEffect(() => {
     // console.log("here");
@@ -34,7 +37,7 @@ const SmallPagination = () => {
   };
 
   var changePage = (e) => {
-    console.log(typeof e.target.value, e.target.value);
+    // console.log(typeof e.target.value, e.target.value);
     var inputNumber = parseInt(e.target.value);
     if (inputNumber <= totalPages) {
       setpageNumber(inputNumber);
@@ -50,6 +53,26 @@ const SmallPagination = () => {
   var gotoLast = () => {
     setpageNumber(totalPages);
   };
+
+  var getValue = (val) => {
+    console.log(val);
+    var sort = "";
+    var limit = "";
+    var check = sortBy.map((item) => item.value);
+    if (check.includes(val)) {
+      console.log(val + "inside here");
+      sort = val;
+      setSortByFinal(sort);
+    } else {
+      limit = val;
+      setLimitByFinal(limit);
+    }
+  };
+
+  props.getPageData(sortByFinal, limitByFinal, pageNumber);
+  // console.log(sortByFinal, limitByFinal);
+
+  // var getSortBy = (val) => {};
   return (
     <>
       {/* {console.log(pageNumber, limitPerPage, sortBy, totalPages)} */}
@@ -57,10 +80,10 @@ const SmallPagination = () => {
       <br />
       <div style={{ display: "inline-flex" }} className="threesips">
         <div>
-          <Dropdown data={sortBy} />
+          <Dropdown data={sortBy} getValue={getValue} />
         </div>
         <div>
-          <Dropdown data={limitPerPage} />
+          <Dropdown data={limitPerPage} getValue={getValue} />
         </div>
 
         <div className="pagination">

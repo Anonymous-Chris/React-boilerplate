@@ -2,13 +2,20 @@ import React, { useEffect, useState } from "react";
 const Dropdown = (props) => {
   const [dropdown, setDropdown] = useState(props.data);
   const [selectedValue, setSelectedValue] = useState("");
-
+  // console.log(props.data[0].value);
   useEffect(() => {
     setDropdown(props.data);
-  }, [props]);
+    // console.log(props.data);
+    if (props.data.length > 0) {
+      props.getValue(props.data[0].value);
+    }
+
+    // return () => {};
+  }, [props.data]);
 
   var changeSelectedValue = (e) => {
     setSelectedValue(e.target.value);
+    props.getValue(e.target.value);
   };
   return (
     <>
