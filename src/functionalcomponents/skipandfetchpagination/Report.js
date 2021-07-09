@@ -7,6 +7,10 @@ const Report = () => {
     console.log(value);
   };
 
+  var getPaginationValue = (sortByFinal, limitByFinal, pageNumber) => {
+    console.log(sortByFinal, limitByFinal, pageNumber);
+  };
+
   var apiPath = (val) => {
     console.log(val + " apipath");
     setApiPath(val);
@@ -16,7 +20,7 @@ const Report = () => {
       {console.log(_apiPathState)}
       <Filter chrisNeeds={chrisNeeds} apiPath={apiPath} />
       <div style={{ marginTop: "100px" }}>
-        <Pagination />
+        <Pagination getPaginationValue={getPaginationValue} />
       </div>
     </>
   );

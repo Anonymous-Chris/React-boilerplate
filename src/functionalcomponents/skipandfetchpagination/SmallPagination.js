@@ -55,12 +55,12 @@ const SmallPagination = (props) => {
   };
 
   var getValue = (val) => {
-    console.log(val);
+    // console.log(val);
     var sort = "";
     var limit = "";
     var check = sortBy.map((item) => item.value);
     if (check.includes(val)) {
-      console.log(val + "inside here");
+      // console.log(val + "inside here");
       sort = val;
       setSortByFinal(sort);
     } else {
