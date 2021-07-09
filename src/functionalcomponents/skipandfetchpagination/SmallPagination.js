@@ -62,10 +62,6 @@ const SmallPagination = () => {
         <div>
           <Dropdown data={limitPerPage} />
         </div>
-        <span>
-          <input type="text" value={pageNumber} onChange={changePage}></input>{" "}
-          of {totalPages} page
-        </span>
 
         <div className="pagination">
           <i
@@ -78,6 +74,13 @@ const SmallPagination = () => {
             aria-hidden="true"
             onClick={decreasePage}
           ></i>
+
+          <span>
+            Page{" "}
+            <input type="text" value={pageNumber} onChange={changePage}></input>{" "}
+            of {totalPages}
+          </span>
+
           <i
             className="fas fa-angle-right"
             aria-hidden="true"
