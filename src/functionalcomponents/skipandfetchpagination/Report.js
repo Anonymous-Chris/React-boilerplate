@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Filter from "./Filter";
-
+import Pagination from "./Pagination";
 const Report = () => {
   const [_apiPathState, setApiPath] = useState("");
   var chrisNeeds = (value) => {
@@ -15,6 +15,9 @@ const Report = () => {
     <>
       {console.log(_apiPathState)}
       <Filter chrisNeeds={chrisNeeds} apiPath={apiPath} />
+      <div style={{ marginTop: "100px" }}>
+        <Pagination />
+      </div>
     </>
   );
 };
