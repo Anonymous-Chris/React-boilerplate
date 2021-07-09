@@ -18,7 +18,7 @@ const SmallPagination = () => {
   }, []);
 
   var decreasePage = () => {
-    if (pageNumber !== 1) {
+    if (pageNumber > 1) {
       setpageNumber(pageNumber - 1);
     }
   };
