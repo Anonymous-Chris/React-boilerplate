@@ -18,21 +18,28 @@ const SmallPagination = () => {
   }, []);
 
   var decreasePage = () => {
-    if (pageNumber > 1) {
+    if (pageNumber > 1 && typeof pageNumber === "number") {
       setpageNumber(pageNumber - 1);
+    } else if (typeof pageNumber === "string") {
+      setpageNumber(1);
     }
   };
 
   var increasePage = () => {
-    if (pageNumber < totalPages) {
+    if (pageNumber < totalPages && typeof pageNumber === "number") {
       setpageNumber(pageNumber + 1);
+    } else if (typeof pageNumber === "string") {
+      setpageNumber(1);
     }
   };
 
   var changePage = (e) => {
-    console.log(e.target.value);
-    if (e.target.value <= totalPages) {
-      setpageNumber(e.target.value);
+    console.log(typeof e.target.value, e.target.value);
+    var inputNumber = parseInt(e.target.value);
+    if (inputNumber <= totalPages) {
+      setpageNumber(inputNumber);
+    } else {
+      setpageNumber("");
     }
   };
   return (
