@@ -35,8 +35,12 @@ const SmallFilter = (props) => {
     for (var checkbox of markedCheckbox) {
       test.push(checkbox.value + "_" + name);
     }
-
-    props.getFilters(test, name);
+    console.log(test);
+    if (test.length > 0) {
+      props.getFilters(test, name);
+    } else {
+      props.getFilters("", name);
+    }
 
     document.getElementById(`checkboxes-${name}`).style.display = "none";
   };

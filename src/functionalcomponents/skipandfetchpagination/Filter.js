@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SmallFilter from "./SmallFilter";
 
-const Filter = () => {
+const Filter = (props) => {
   const [dropdown, setDropdown] = useState([]);
   const [selectedValue, setSelectedValue] = useState("");
   const [extraDropdowns, setExtraDropdowns] = useState([]);
@@ -48,6 +48,7 @@ const Filter = () => {
       dict = dict.filter((a) => !a.includes(`${name}`));
     }
     console.log(dict);
+    props.chrisNeeds(dict);
   };
 
   return (
