@@ -23,6 +23,10 @@ const SmallPagination = () => {
       <div>
         <Dropdown data={sortBy} />
         <Dropdown data={limitPerPage} />
+        <div>
+          <i class="fas fa-angle-left"></i>
+          <i class="fas fa-angle-right"></i>
+        </div>
       </div>
     </>
   );
