@@ -4,7 +4,7 @@ import Dropdown from "./Dropdown";
 const SmallPagination = () => {
   const [pageNumber, setpageNumber] = useState(1);
   const [limitPerPage, setlimitPerPage] = useState([]);
-  const [sortBy, setsortBy] = useState("");
+  const [sortBy, setsortBy] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
