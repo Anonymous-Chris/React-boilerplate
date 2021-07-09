@@ -51,3 +51,11 @@ h1 {
 #checkBoxes label:hover {
   background-color: #4f615e;
 }
+
+.pagination i {
+  margin-right: 1vw;
+}
+
+.threesips {
+  margin-top: 1vh;
+}

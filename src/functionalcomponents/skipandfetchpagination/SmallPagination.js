@@ -20,12 +20,15 @@ const SmallPagination = () => {
     <>
       {/* {console.log(pageNumber, limitPerPage, sortBy, totalPages)} */}
       <b>SmallPagination</b>
-      <div>
+      <br />
+      <div style={{ display: "inline-flex" }} className="threesips">
         <Dropdown data={sortBy} />
         <Dropdown data={limitPerPage} />
-        <div>
-          <i class="fas fa-angle-left"></i>
-          <i class="fas fa-angle-right"></i>
+        <div className="pagination">
+          <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+          <i class="fas fa-angle-left" aria-hidden="true"></i>
+          <i class="fas fa-angle-right" aria-hidden="true"></i>
+          <i class="fa fa-angle-double-right" aria-hidden="true"></i>
         </div>
       </div>
     </>
