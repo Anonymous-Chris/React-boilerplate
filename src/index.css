@@ -66,3 +66,7 @@ span {
 .threesips div {
   margin-right: 0.3vw;
 }
+
+span input {
+  width: 1vw;
+}
