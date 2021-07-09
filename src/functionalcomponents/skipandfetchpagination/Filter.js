@@ -74,7 +74,11 @@ const Filter = () => {
           return (
             <div key={index}>
               <span>
-                <b>{item.name}</b>
+                <b>
+                  {item.name
+                    .replace("_", " ")
+                    .replace(/^(.)|\s+(.)/g, (c) => c.toUpperCase())}
+                </b>
               </span>
               <SmallFilter
                 data={item.filterBy}
