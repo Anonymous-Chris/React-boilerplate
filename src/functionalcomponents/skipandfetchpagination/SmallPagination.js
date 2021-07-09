@@ -24,7 +24,9 @@ const SmallPagination = () => {
   };
 
   var increasePage = () => {
-    setpageNumber(pageNumber + 1);
+    if (pageNumber < totalPages) {
+      setpageNumber(pageNumber + 1);
+    }
   };
   return (
     <>
@@ -38,7 +40,9 @@ const SmallPagination = () => {
         <div>
           <Dropdown data={limitPerPage} />
         </div>
-        <span>{pageNumber} - 20 of 500</span>
+        <span>
+          {pageNumber} of {totalPages} page
+        </span>
 
         <div className="pagination">
           {/* <i className="fa fa-angle-double-left" aria-hidden="true"></i> */}
