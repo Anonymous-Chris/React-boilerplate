@@ -28,6 +28,13 @@ const SmallPagination = () => {
       setpageNumber(pageNumber + 1);
     }
   };
+
+  var changePage = (e) => {
+    console.log(e.target.value);
+    if (e.target.value <= totalPages) {
+      setpageNumber(e.target.value);
+    }
+  };
   return (
     <>
       {/* {console.log(pageNumber, limitPerPage, sortBy, totalPages)} */}
@@ -41,7 +48,8 @@ const SmallPagination = () => {
           <Dropdown data={limitPerPage} />
         </div>
         <span>
-          {pageNumber} of {totalPages} page
+          <input type="text" value={pageNumber} onChange={changePage}></input>{" "}
+          of {totalPages} page
         </span>
 
         <div className="pagination">
