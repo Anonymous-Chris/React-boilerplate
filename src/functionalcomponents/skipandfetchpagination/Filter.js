@@ -16,6 +16,13 @@ const Filter = (props) => {
   var changeSelectedValue = (e) => {
     setSelectedValue(e.target.value);
     openDropdown(e.target.value);
+
+    dropdown.map((item) => {
+      if (item.category === e.target.value) {
+        props.apiPath(item.path);
+      }
+    });
+    console.log(e.target.value);
   };
 
   var openDropdown = (e) => {
@@ -47,13 +54,13 @@ const Filter = (props) => {
     if (val === "") {
       dict = dict.filter((a) => !a.includes(`${name}`));
     }
-    console.log(dict);
+    // console.log(dict);
     props.chrisNeeds(dict);
   };
 
   return (
     <React.Fragment>
-      {console.log(dict)}
+      {/* {console.log(dict)} */}
       Filter
       {dropdown.length > 0 && (
         <div className="row w-100 pl-2">

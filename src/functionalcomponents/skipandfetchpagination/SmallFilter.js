@@ -35,14 +35,14 @@ const SmallFilter = (props) => {
     for (var checkbox of markedCheckbox) {
       test.push(checkbox.value + "_" + name);
     }
-    console.log(test);
+    // console.log(test);
     if (test.length > 0) {
       props.getFilters(test, name);
     } else {
       props.getFilters("", name);
     }
 
-    document.getElementById(`checkboxes-${name}`).style.display = "none";
+    //    document.getElementById(`checkboxes-${name}`).style.display = "none";
   };
 
   var clearDataSelected = (e, name) => {
