@@ -16,6 +16,16 @@ const SmallPagination = () => {
       setTotalPages(res.data[0].totalData);
     });
   }, []);
+
+  var decreasePage = () => {
+    if (pageNumber !== 1) {
+      setpageNumber(pageNumber - 1);
+    }
+  };
+
+  var increasePage = () => {
+    setpageNumber(pageNumber + 1);
+  };
   return (
     <>
       {/* {console.log(pageNumber, limitPerPage, sortBy, totalPages)} */}
@@ -25,12 +35,24 @@ const SmallPagination = () => {
         <div>
           <Dropdown data={sortBy} />
         </div>
-        <Dropdown data={limitPerPage} />
+        <div>
+          <Dropdown data={limitPerPage} />
+        </div>
+        <span>{pageNumber} - 20 of 500</span>
+
         <div className="pagination">
-          <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-          <i class="fas fa-angle-left" aria-hidden="true"></i>
-          <i class="fas fa-angle-right" aria-hidden="true"></i>
-          <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+          {/* <i className="fa fa-angle-double-left" aria-hidden="true"></i> */}
+          <i
+            className="fas fa-angle-left"
+            aria-hidden="true"
+            onClick={decreasePage}
+          ></i>
+          <i
+            className="fas fa-angle-right"
+            aria-hidden="true"
+            onClick={increasePage}
+          ></i>
+          {/* <i className="fa fa-angle-double-right" aria-hidden="true"></i> */}
         </div>
       </div>
     </>
