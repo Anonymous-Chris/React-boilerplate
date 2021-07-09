@@ -22,7 +22,9 @@ const SmallPagination = () => {
       <b>SmallPagination</b>
       <br />
       <div style={{ display: "inline-flex" }} className="threesips">
-        <Dropdown data={sortBy} />
+        <div>
+          <Dropdown data={sortBy} />
+        </div>
         <Dropdown data={limitPerPage} />
         <div className="pagination">
           <i class="fa fa-angle-double-left" aria-hidden="true"></i>
