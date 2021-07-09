@@ -7,16 +7,11 @@ const SmallFilter = (props) => {
 
   useEffect(() => {
     setDropdown(props.data);
-    // setSelectedItem(props.data[0]);
-    // setSelectedItemname(props.name);
   }, [props.data]);
 
-  //   console.log(selectedItem);
   var show = true;
-  //   showCheckboxes(props.name);
 
   function showCheckboxes(name) {
-    // console.log(name);
     try {
       var checkboxes = document.getElementById(`checkboxes-${name}`);
       if (show) {
@@ -43,7 +38,7 @@ const SmallFilter = (props) => {
 
     props.getFilters(test, name);
 
-    //document.getElementById(`checkboxes-${name}`).style.display = "none";
+    document.getElementById(`checkboxes-${name}`).style.display = "none";
   };
 
   var clearDataSelected = (e, name) => {
@@ -115,23 +110,6 @@ var ReturnCheckbox = (props) => {
           </label>
         );
       })}
-      {/* <label htmlFor={`first-${props.name}`}>
-          <input type="checkbox" id={`first-${props.name}`} />
-          checkBox1
-        </label>
-
-        <label htmlFor={`second-${props.name}`}>
-          <input type="checkbox" id={`second-${props.name}`} />
-          checkBox2
-        </label>
-        <label htmlFor={`third-${props.name}`}>
-          <input type="checkbox" id={`third-${props.name}`} />
-          checkBox3
-        </label>
-        <label htmlFor={`fourth-${props.name}`}>
-          <input type="checkbox" id={`fourth-${props.name}`} />
-          checkBox4
-        </label> */}
     </div>
   );
 };

@@ -48,30 +48,6 @@ const Filter = () => {
       dict = dict.filter((a) => !a.includes(`${name}`));
     }
     console.log(dict);
-    // setDict(temp);
-
-    // // dict = dict.filter((a) => !a.includes(`${name}`));
-    // var filterItem = val + "_" + name;
-    // console.log(filterItem);
-    // if (dict.length === 0) {
-    //   dict.push(filterItem);
-    // } else {
-    //   if (val !== "") {
-    //     var index = dict.indexOf(filterItem);
-    //     if (index === -1) {
-    //       dict.push(filterItem);
-
-    //       console.log(dict);
-    //     }
-    //     // else {
-    //     //   dict = dict.filter((a) => !a.includes(`${name}`));
-    //     //   dict.push(filterItem);
-    //     // }
-    //   } else if (val === "") {
-    //     console.log(dict.filter((a) => !a.includes(`${name}`)));
-    //     dict = dict.filter((a) => !a.includes(`${name}`));
-    //   }
-    // }
   };
 
   return (
